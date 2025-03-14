@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="/static/title_icon.png" type="image/icon type" >
+    <title>MBase</title>
+    <link rel="stylesheet" href="/static/interface.css">
+</head>
+<body>
+    <!-- <h1>Welcome {{name}}</h1> -->
+    <div class="hero">
+        <nav>
+          <p class="btn"><img clss="j" src="/static/title_icon.png" >MBASE</p>
+            <!-- <img src="/static/logo.png" class="logo"> -->
+            <ul>
+                <!-- <li><a href="#">home</a></li> -->
+                <!-- <li><a href="#">home</a></li> -->
+                <!-- <li><a href="#">home</a></li> -->
+            </ul>
+            <div>Welcome <span id="welcome_name">{{name}}</span></div>
+            <img src="/static/profile1.png" class="logopic" onclick="toggleMenu()">
+           
+            <div class="sub-menu-wrap"  id="subMenu">
+                    <a href="{{url_for('view_profile')}}" class="sub-menu-link">
+                        <img src="/static/user2.png" id="viewprofile">
+                        <p> View Profile</p>
+                        <span></span>
+                    </a> 
+                    <!-- <a href="updateprofile.html" class="sub-menu-link">
+                        <img src="/static/update.png" id="update">
+                        <p>Update Profile</p>
+                        <span></span>
+                    </a> -->
+                    <a href="{{url_for('contact')}}" class="sub-menu-link">
+                        <img src="/static/contact.png" id="contact">
+                        <p>Contact Us</p>
+                        <span></span>
+                    </a> 
+                    <a href="{{url_for('logout')}}" class="sub-menu-link">
+                        <img src="/static/logout.png" id="logout" >
+                        <p>Logout</p>
+                      <!-- <button id="logout-btn">Logout</button>  -->
+                        <span></span>
+                    </a>
+                </div>
+            </div>
+         </nav>
+                   
+    <form method="post" action="/login/interface/generate">
+      <table>
+        <tr>
+          <td><input type="text" id="malayalam_query" name="malayalam_query"  placeholder="Enter your malayalam query here"></td>
+          <a href="{{url_for('generate')}}"><td><input type="submit" onclick="get_mq()" value="Generate SQL query"></td></a>
+        </tr>
+     </table>
+    
+    </form>
+            
+    <form method="post" action="/login/interface/execute" >
+        <table> 
+        <tr>
+          <td><input type="text" id="sql_query" name="sql_query" value="{{SQ}}" placeholder="Your SQL query will be generated here" readonly></td>
+          <a href="{{url_for('execute')}}"><td><input  type="submit"  value="Execute SQL query"></td></a>
+        </tr>  
+    </table> 
+    </form>
+    </div>
+
+    <div id="loader" class="center"></div>
+
+
+    
+    <div id="error" style="font-weight: bold;">{{msg}}</div>
+
+    
+    <!-- <div class="error_msg" >{{msg}}</div> -->
+
+    <div id = "table_scroll" style="  margin: 0px auto;">
+        <table class="table" style=" margin: 0px auto; " id ="table">
+            
+            <tr class="table_header">
+                {% for header in headings %}
+                <th class="table_cell" id="heading">{{header}}</th> 
+                {% endfor %}
+            
+            </tr>
+
+            {% for row in data %}              
+            <tr  class="table_row">
+                {% for cell in row %}
+                <td class="table_cell">{{cell}}</td>
+               {% endfor %}
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+
+    <a href="{{url_for('documentation')}}" style="color: forestgreen;">Documentation</a>
+
+    <a href="{{url_for('interface')}}" class="sub-menu-link">
+        <img src="/static/reset2.png" id="reset" >
+        <!-- <p>Logout</p> -->
+    <!-- <button id="logout-btn">Logout</button>  -->
+        <span></span>
+    </a>
+    <!-- <button id="reset-button">Reset</button> -->
+            
+    <script>
+        document.getElementById("malayalam_query").placeholder = localStorage.getItem("malayalam_query");
+
+        function get_mq(){
+
+            const get_malayalam_query = document.getElementById("malayalam_query").value
+            localStorage.setItem("malayalam_query", get_malayalam_query)  
+            
+        }
+         
+        document.onreadystatechange = function () {
+            if (document.readyState !== "complete") {
+                document.querySelector(
+                    "body").style.visibility = "hidden";
+                document.querySelector(
+                    "#loader").style.visibility = "visible";
+            } else {
+                document.querySelector(
+                    "#loader").style.display = "none";
+                document.querySelector(
+                    "body").style.visibility = "visible";
+            }
+        };
+
+
+        let subMenu = document.getElementById("subMenu")
+        function toggleMenu(){
+            subMenu.classList.toggle("open-menu");
+        }
+        const logoutBtn = document.querySelector('#logout');
+        logoutBtn.addEventListener('click', logout);
+
+        function logout() {
+        window.location.href = 'home.html';
+        }
+        const contactBtn = document.querySelector('#contact');
+        contactBtn.addEventListener('click', contact);
+
+        function contact() {
+        window.location.href = 'contact.html';
+        }
+        const viewprofileBtn = document.querySelector('#viewprofile');
+        viewprofileBtn.addEventListener('click', viewprofile);
+
+        function viewprofile() {
+        window.location.href = 'viewprofile.html';
+        }
+        const updateprofileBtn = document.querySelector('#updateprofile');
+        updateprofileBtn.addEventListener('click', updaterofile);
+
+        function updateprofile() {
+        window.location.href = 'updateprofile.html';
+        }
+        
+
+        function preback(){window.history.forward();}
+        setTimeout("preback()",0);
+        window.onunload=function(){null};
+
+    </script>
+    <script>
+
+
+        const resetButton = document.querySelector('#reset');
+        resetButton.addEventListener('click', reset);
+
+        function reset() {
+        // window.location.href = 'interface.html';
+        localStorage.setItem("malayalam_query", "Enter your malayalam query here")  
+
+        }
+        
+    </script>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="icon" href="/static/title_icon.png" type="image/icon type" id="title_icon">
+    <link rel="stylesheet" href="/static/home.css">
+</head>
+<body>
+   
+    <div>
+      <img class="logo" src="/static/logo.png" alt="">
+ 
+       <!-- <nav>
+            <ul class="nav__links">
+                <li><a href="ss.html">login</a></li>
+                <li><a href="ss.html">Signup</a></li>
+                <li><a href="cont.html">contact</a></li>
+               
+            </ul>
+        </nav>-->
+        
+        
+    
+        <div class="content">
+            
+            <p>Empowering SQL Databases with Natural Language Interface in Malayalam</p>
+        </div>
+        
+    </div>
+    
+    <div class="content">
+        <!-- <a href="{{ url_for('register') }}"><button type="button"><span></span></button>Join Us</a> -->
+        <button type="button"><span></span><a href="{{ url_for('login') }}">Try it</button></a>
+    </div>
+ 
+    <a href="{{url_for('contact')}}"><img class="lo" src="/static/s.png" alt=""></a>
+
+
+</body>
+</html>
