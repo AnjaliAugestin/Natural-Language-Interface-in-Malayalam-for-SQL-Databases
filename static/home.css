@@ -1,0 +1,166 @@
+body{
+    background-image: url("m.jpg");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    
+}
+
+#title_icon{
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+}
+
+.content{
+    width: 100%;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    text-align: center;
+    color:#fff;
+}
+.content h1{
+    font-size: 70px;
+    margin-top: 88px;
+}
+.content p{
+    color: black;
+margin-top: 20%;
+margin-right: 44%;
+}
+
+span{
+    background: #fff;
+    height: 100%;
+    width: 0;
+    border-radius: 25px;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    z-index: -1;
+    transition: 0.5s;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    
+}
+ 
+li,a,button {
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    color: #000;
+    text-decoration: none;
+}
+ 
+header
+{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px 10%;
+}
+ 
+.logo
+{
+    cursor: pointer;
+    margin-right: 50px;
+    
+}
+
+.nav__links {
+    list-style: none;
+}
+ 
+.nav__links li { display: inline-block;
+    padding: 0px 20px;
+    margin-left: 85%;
+    
+}
+ 
+.nav__links li a {
+    transition: all 0.3s ease 0s;
+    color: black;
+ 
+}
+ 
+.nav__links li a:hover {
+    color: #1abc9c;
+}
+.content .cn{
+    width: 160px;
+    height: 40px;
+    
+    border: none;
+    margin-top: 40%;
+    margin-right: 50%;
+    font-size: 18px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: .4s ease;
+    
+    
+}
+
+.content .cn a{
+    text-decoration: none;
+    color: #000;
+    transition: .3s ease;
+    
+}
+
+.cn:hover{
+    background-color: #fff;
+}
+.logopic{
+    width: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    margin-left: 80%;
+  }
+button{
+    width: 200px;
+    padding: 15px 0;
+    text-align: center;
+    margin: 20px 10px;
+    border-radius: 25px;
+    font-weight: bold;
+    border: 2px solid #494b49;
+    background: transparent;
+    color: #fff;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    margin-top: 30%;
+    margin-right: 45%;
+}
+span{
+    background-color:#79c58d;
+    height: 100%;
+    width: 0%;
+    border-radius: 25px;
+    position: absolute;
+    left: 0%;
+    z-index: -1;
+    transition: 0.5s;
+}
+button:hover  span{
+  width: 100%;
+
+}
+button:hover{
+    border: none;
+}
+
+
+.lo{
+    position: absolute;
+    left: 0px;
+    bottom: 0px;
+}
+
